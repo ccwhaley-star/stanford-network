@@ -24,6 +24,7 @@
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
         <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
         <a href="#contact">Contact</a>
       </nav>
       <a href="#contact" class="btn btn-primary btn-sm nav-cta">Request Information</a>
@@ -194,6 +195,30 @@
       </div>
     </section>
 
+    <!-- ============== LEADERSHIP ============== -->
+    <section id="leadership" class="leadership">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">Leadership</span>
+          <h2>Built by someone who's done this before.</h2>
+          <p>Stanford Network's standards trace back to a career spent inside the operations the market got wrong.</p>
+        </header>
+
+        <article class="leader-card">
+          <div class="leader-photo">
+            <img src="assets/john-cutrone.jpg" alt="Portrait of John Cutrone, Founder and CEO of Stanford Network" />
+          </div>
+          <div class="leader-bio">
+            <h3>John Cutrone</h3>
+            <p class="leader-title">Founder &amp; CEO</p>
+            <p class="leader-eyebrow">Consumer Electronics &amp; SOHO</p>
+            <p>John began his career at Brother International, starting as an assistant in the marketing department and quickly rising to head of sales and marketing. He was a pioneer in the development of the Small Office &amp; Home Office (SOHO) market — introducing low-cost fax, various print technologies, and the P-Touch labeler.</p>
+            <p>He went on to do the same for Smith Corona, leading a complete product-development expansion and working with the crisis-management team that completed the sale of the company.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- ============== CTA STRIP ============== -->
     <section class="cta-strip">
       <div class="container cta-grid">
@@ -335,7 +360,7 @@
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.service-card, .voids li, .section-head, .about-copy, .about-aside, .locations-card').forEach(el => io.observe(el));
+    document.querySelectorAll('.service-card, .voids li, .section-head, .about-copy, .about-aside, .locations-card, .leader-card').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
