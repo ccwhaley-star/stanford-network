@@ -34,6 +34,7 @@
 /* -------- base -------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 100px; }
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -501,13 +502,16 @@ p  { margin: 0 0 1rem; color: var(--ink-2); }
 .field input,
 .field select,
 .field textarea {
-  font: inherit;
+  font-family: inherit;
+  font-size: 16px; /* prevents iOS focus zoom */
   color: var(--ink);
   padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fff;
   transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .field input:focus,
 .field select:focus,
@@ -579,6 +583,10 @@ p  { margin: 0 0 1rem; color: var(--ink-2); }
 }
 
 @media (max-width: 720px) {
+  section[id] { scroll-margin-top: 78px; }
+  .container { padding: 0 18px; }
+  .nav { padding: 10px 18px; gap: 12px; }
+  .brand img { height: 52px; }
   .nav-toggle { display: block; margin-left: auto; }
   .nav-cta { display: none; }
   .primary-nav {
@@ -591,20 +599,41 @@ p  { margin: 0 0 1rem; color: var(--ink-2); }
     max-height: 0;
     overflow: hidden;
     transition: max-height .3s var(--ease);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
   }
   .primary-nav.open { max-height: 320px; }
   .primary-nav a {
-    padding: 16px 24px;
+    padding: 16px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, .06);
   }
   .primary-nav a::after { display: none; }
-  .hero-stats { gap: 22px; flex-wrap: wrap; }
+
+  .hero { padding: 64px 0 56px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; padding-top: 22px; }
   .hero-stats strong { font-size: 1.5rem; }
+  .hero-stats li { min-width: 84px; }
   .hero-video { opacity: 0.35; }
+  .hero-ctas .btn { flex: 1 1 auto; justify-content: center; }
+
   .service-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 24px; }
   .field-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-logo { height: 56px; }
+  .cta-strip .btn { justify-self: center; }
   .services, .approach, .about, .contact { padding: 64px 0; }
+
+  .footer-bottom { justify-content: center; text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+  h1 { font-size: 2rem; }
+  .hero-stats { gap: 16px; }
+  .hero-stats strong { font-size: 1.35rem; }
+  .btn { padding: 11px 18px; font-size: 0.92rem; }
+  .btn-lg { padding: 13px 22px; font-size: 0.98rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
